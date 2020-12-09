@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +7,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class HomePage {
 
-  constructor(firestore: AngularFirestore) {}
+  constructor() {}
 
 }
