@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "cs336-chat-final": {
+      "hosting": {
+        "app": [
+          "cs336-chat-final"
+        ]
+      }
+    }
+  }
+}
