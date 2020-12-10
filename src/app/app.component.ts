@@ -18,6 +18,15 @@ export class AppComponent {
     this.initializeApp();
   }
 
+  toggleTheme(event){
+    if(event.detail.checked){
+      document.body.setAttribute('color-theme', 'dark');
+    }
+    else{
+      document.body.setAttribute('color-theme', 'light');
+    }
+  }
+
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();

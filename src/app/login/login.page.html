@@ -8,6 +8,8 @@
     <img src="">
   </div>
 
+  <h2>Login and Chat!</h2>
+
   <div class="form">
   <ion-item lines="none">
     <ion-input [(ngModel)]='email' placeholder="Enter email!"></ion-input>
@@ -17,9 +19,9 @@
     <ion-input [(ngModel)]='password' placeholder="Password" type="password"></ion-input>
   </ion-item>
 
-  <ion-button color="dark" expand="block">Login</ion-button>
+  <ion-button color="dark" expand="block" routerLink="/chatpage">Login</ion-button>
 </div>
 
-  <ion-button fill='clear'>New here? Sign Up!</ion-button>
+  <ion-button fill='clear' (click)="btnClicked()" routerLink="/signup"><u>New here? Sign Up!</u></ion-button>
 
 </ion-content>

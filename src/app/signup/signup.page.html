@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+
+</ion-header>
+
+<ion-content class="ion-padding ion-text-center">
+
+  <div class="logo">
+    <img src="">
+  </div>
+
+  <h2>Sign Up and Chat!</h2>
+
+  <div class="signupForm">
+  <ion-item lines="none">
+    <ion-input [(ngModel)]='fName' placeholder="Enter First Name"></ion-input>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-input [(ngModel)]='lName' placeholder="Enter Last Name"></ion-input>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-input [(ngModel)]='email' placeholder="Enter email" ></ion-input>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-input [(ngModel)]='password' placeholder="Password" type="password"></ion-input>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-input [(ngModel)]='passwordagain' placeholder="Enter Password Again" type="password"></ion-input>
+  </ion-item>
+
+
+  <ion-button color="dark" expand="block" routerLink="/chatpage">Sign Up</ion-button>
+
+  <ion-button fill='clear' (click)="btnClicked()" routerLink="/login"><u>Already have an account? Sign In!</u></ion-button>
+</div>
+
+
+</ion-content>
