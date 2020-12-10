@@ -1,0 +1,37 @@
+.message-input{
+ padding-right: 10px;
+ padding-left: 10px;
+ resize: none;
+ background: #ffffff;
+ border-radius: 10px;
+ border: 1px solid var(--ion-color-medium);
+ width: 100%;
+}
+
+.msg-btn{
+    --padding-start: 0.5em;
+    --padding-end: 0.5em;
+}
+
+.chatMessage{
+    margin-bottom: 4px;
+    padding: 10px;
+    border-radius: 10px;
+    white-space: pre-wrap;
+}
+
+.other-message{
+    color:#fff;
+    background: var(--ion-color-tertiary);
+}
+
+.my-message{
+    color:#fff;
+    background: var(--ion-color-secondary);
+}
+
+.time{
+    font-size: small;
+    color: #dfdfdf;
+    float: right;
+}
