@@ -1,5 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonContent } from '@ionic/angular';
+import { AngularFirestore } from '@angular/fire/firestore';
+import * as firebase from 'firebase';
+
+interface DBChatMsg {
+  user: string;
+  msg: string;
+  dateSent: firebase.default.firestore.Timestamp;
+  likes: string[];  // array of users who liked the msg
+}
 
 @Component({
   selector: 'app-chatpage',
@@ -7,7 +16,7 @@ import { IonContent } from '@ionic/angular';
   styleUrls: ['./chatpage.page.scss'],
 })
 export class ChatpagePage implements OnInit {
-
+  messages: DBChatMsg[] = [];
   textChat = [
     
     {
@@ -51,7 +60,22 @@ export class ChatpagePage implements OnInit {
     })
   }
 
-  constructor() { }
+  constructor(private db: AngularFirestore) {
+    this.db.collection<DBChatMsg>('/chat').valueChanges().subscribe((res) => {
+      this.messages = res;
+    });
+  }
+
+  sendMsg(): void {
+    const time = firebase.default.firestore.Timestamp.now();
+    this.db.collection<DBChatMsg>('/chat').doc(`${time}`).set({
+      user: this.currentUser,
+      msg: this.enterMsg,
+      dateSent: time,
+      likes: [],
+    });
+    this.enterMsg = '';
+  }
 
   ngOnInit() {
   }
