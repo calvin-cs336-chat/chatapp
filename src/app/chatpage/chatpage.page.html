@@ -12,7 +12,7 @@
 
 <ion-content>
   <ion-grid>
-    <ion-row *ngFor="let chatMessage of textChat">
+    <ion-row *ngFor="let chatMessage of messages">
       <ion-col size="9" *ngIf="currentUser !== chatMessage.user" class="chatMessage other-message">
         <b>{{chatMessage.user}}</b><br>
         <span>{{chatMessage.msg}}</span>
@@ -41,7 +41,7 @@
 
       <ion-col size="2">
         <ion-button expand="block" fill="clear" color="primary" [disabled]="enterMsg === ''" class="msg-btn"
-        (click)="sendText()">
+        (click)="sendMsg()">
         <ion-icon name="send" slot="icon-only"></ion-icon>
       </ion-button>
       </ion-col>
