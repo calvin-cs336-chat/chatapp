@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { ToastController } from '@ionic/angular';
+import { createErrorToast } from '../app.component'
 
 @Component({
   selector: 'app-signup',
@@ -19,16 +20,10 @@ export class SignupPage implements OnInit {
       // the user is signed in
     })
     .catch((err) => {
-      this.createErrorToast(err.message);
+      createErrorToast(this.toastCtl, err.message);
     });
   }
 
-  async createErrorToast(msg: string) {
-    const toast = await this.toastCtl.create({
-      message: msg,
-      duration: 3000,
-    });
-  }
 
   ngOnInit() {
   }

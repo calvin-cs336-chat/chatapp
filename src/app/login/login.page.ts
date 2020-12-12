@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { ToastController } from '@ionic/angular';
+import { createErrorToast } from '../app.component';
 
 @Component({
   selector: 'app-login',
@@ -8,25 +9,21 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  
+  email = '';
+  password = '';
 
   constructor(
     public auth: AngularFireAuth,
     public toastCtl: ToastController,
     ) {}
 
-  login(email: string, password: string): void {
-    this.auth.signInWithEmailAndPassword(email, password).then(() => {
+  login(): void {
+    this.auth.signInWithEmailAndPassword(this.email, this.password).then(() => {
       // the user is signed in
     })
     .catch((err) => {
-      this.createErrorToast(err.message);
-    });
-  }
-
-  async createErrorToast(msg: string) {
-    const toast = await this.toastCtl.create({
-      message: msg,
-      duration: 3000,
+      createErrorToast(this.toastCtl, err.message);
     });
   }
 
