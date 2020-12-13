@@ -10,13 +10,15 @@ import { ChatpagePage } from './chatpage.page';
 
 import { AutosizeModule } from 'ngx-autosize';
 
+
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     AutosizeModule,
-    ChatpagePageRoutingModule
+    ChatpagePageRoutingModule,
   ],
   declarations: [ChatpagePage]
 })

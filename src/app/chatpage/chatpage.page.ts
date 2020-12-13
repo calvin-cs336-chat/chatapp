@@ -3,11 +3,15 @@ import { IonContent } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/firestore';
 import * as firebase from 'firebase';
 
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx'
+import { File } from '@ionic-native/file/ngx'
+
 interface DBChatMsg {
   user: string;
   msg: string;
   dateSent: firebase.default.firestore.Timestamp;
   likes: string[];  // array of users who liked the msg
+
 }
 
 @Component({
@@ -17,6 +21,12 @@ interface DBChatMsg {
 })
 export class ChatpagePage implements OnInit {
   messages: DBChatMsg[] = [];
+  imgURL;
+  pictures:any=[];
+  likeCount: number = 0;
+  dislikeCount:number = 0;
+
+
   textChat = [
     
     {
@@ -60,10 +70,11 @@ export class ChatpagePage implements OnInit {
     })
   }
 
-  constructor(private db: AngularFirestore) {
+  constructor(private db: AngularFirestore, private camera: Camera, public file:File) {
     this.db.collection<DBChatMsg>('/chat').valueChanges().subscribe((res) => {
       this.messages = res;
     });
+
   }
 
   sendMsg(): void {
@@ -76,6 +87,31 @@ export class ChatpagePage implements OnInit {
     });
     this.enterMsg = '';
   }
+
+  chatCamera(){
+    const options: CameraOptions={
+      quality:100,
+      mediaType:this.camera.MediaType.PICTURE,
+      destinationType:this.camera.DestinationType.FILE_URI,
+      encodingType:this.camera.EncodingType.JPEG
+    }
+    this.camera.getPicture().then((ImageData)=>{
+      let filename = ImageData.substring(ImageData.lastIndexOf('/')+1);
+      let path = ImageData.substring(0, ImageData.lastIndexOf('/')+1);
+      this.file.readAsDataURL(path, filename).then((base64data)=>{
+        this.pictures.push(base64data);
+      })
+    })
+  }
+  
+  likeButton(){
+    this.likeCount++;
+  }
+
+  dislikeButton(){
+    this.dislikeCount++;
+  }
+
 
   ngOnInit() {
   }
