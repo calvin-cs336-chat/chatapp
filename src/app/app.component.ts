@@ -18,8 +18,12 @@ export class AppComponent {
     firestore: AngularFirestore
   ) {
     this.initializeApp();
+    //dark
+    const changeDark = window.matchMedia('(prefers-color-scheme:dark)');
+    this.darkMode = changeDark.matches;
   }
 
+  /* Failed dark mode
   toggleTheme(event){
     if(event.detail.checked){
       document.body.setAttribute('color-theme', 'dark');
@@ -29,10 +33,32 @@ export class AppComponent {
     }
   }
 
+  */
+
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+      this.checkDarkTheme();
     });
+  }
+
+
+  
+  darkMode:boolean = true;
+
+  //Dark mode
+  change(){
+    this.darkMode = !this.darkMode;
+    document.body.classList.toggle('dark');
+  }
+
+  //dark mode
+  checkDarkTheme(){
+    const changeDark = window.matchMedia('(prefers-color-scheme: dark)');
+    if (changeDark.matches){
+      document.body.classList.toggle('dark');
+    }
   }
 }
