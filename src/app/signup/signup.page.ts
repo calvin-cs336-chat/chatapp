@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { ToastController } from '@ionic/angular';
-import { createErrorToast } from '../app.component'
+import { createErrorToast } from '../app.component';
 
 @Component({
   selector: 'app-signup',
@@ -10,18 +10,29 @@ import { createErrorToast } from '../app.component'
 })
 export class SignupPage implements OnInit {
 
+  uname = '';
+  email = '';
+  password = '';
+  passwordagain = '';
+
   constructor(
     public auth: AngularFireAuth,
     public toastCtl: ToastController,
     ) {}
 
-  signup(email: string, password: string): void {
-    this.auth.createUserWithEmailAndPassword(email, password).then(() => {
-      // the user is signed in
-    })
-    .catch((err) => {
-      createErrorToast(this.toastCtl, err.message);
-    });
+  signup(): void {
+    if (this.password === this.passwordagain) {
+      this.auth.createUserWithEmailAndPassword(this.email, this.password).then((user) => {
+        user.user.updateProfile({
+          displayName: this.uname,
+        });
+      })
+      .catch((err) => {
+        createErrorToast(this.toastCtl, err.message);
+      });
+    } else {
+      createErrorToast(this.toastCtl, "Passwords don't match.");
+    }
   }
 
 
