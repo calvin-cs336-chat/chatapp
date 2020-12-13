@@ -1,14 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonContent } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { DBChatMsg } from '../interfaces'
 import * as firebase from 'firebase';
-
-interface DBChatMsg {
-  user: string;
-  msg: string;
-  dateSent: firebase.default.firestore.Timestamp;
-  likes: string[];  // array of users who liked the msg
-}
 
 @Component({
   selector: 'app-chatpage',
