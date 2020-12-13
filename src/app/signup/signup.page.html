@@ -12,19 +12,15 @@
 
   <div class="signupForm">
   <ion-item lines="none">
-    <ion-input [(ngModel)]='fName' placeholder="Enter First Name"></ion-input>
+    <ion-input [(ngModel)]='uname' placeholder="Enter Username"></ion-input>
   </ion-item>
 
   <ion-item lines="none">
-    <ion-input [(ngModel)]='lName' placeholder="Enter Last Name"></ion-input>
+    <ion-input [(ngModel)]='email' placeholder="Enter Email" ></ion-input>
   </ion-item>
 
   <ion-item lines="none">
-    <ion-input [(ngModel)]='email' placeholder="Enter email" ></ion-input>
-  </ion-item>
-
-  <ion-item lines="none">
-    <ion-input [(ngModel)]='password' placeholder="Password" type="password"></ion-input>
+    <ion-input [(ngModel)]='password' placeholder="Enter Password" type="password"></ion-input>
   </ion-item>
 
   <ion-item lines="none">
@@ -32,7 +28,7 @@
   </ion-item>
 
 
-  <ion-button color="dark" expand="block" routerLink="/chatpage">Sign Up</ion-button>
+  <ion-button color="dark" expand="block" (click)="signup()">Sign Up</ion-button>
 
   <ion-button fill='clear' (click)="btnClicked()" routerLink="/login"><u>Already have an account? Sign In!</u></ion-button>
 </div>

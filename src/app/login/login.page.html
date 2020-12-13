@@ -19,7 +19,7 @@
     <ion-input [(ngModel)]='password' placeholder="Password" type="password"></ion-input>
   </ion-item>
 
-  <ion-button color="dark" expand="block" routerLink="/chatpage">Login</ion-button>
+  <ion-button color="dark" expand="block" (click)="login()">Login</ion-button>
 </div>
 
   <ion-button fill='clear' (click)="btnClicked()" routerLink="/signup"><u>New here? Sign Up!</u></ion-button>

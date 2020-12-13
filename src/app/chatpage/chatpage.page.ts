@@ -1,18 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonContent } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { IonContent, ToastController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { DBChatMsg, DBUser } from '../interfaces'
 import * as firebase from 'firebase';
 
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx'
 import { File } from '@ionic-native/file/ngx'
-
-interface DBChatMsg {
-  user: string;
-  msg: string;
-  dateSent: firebase.default.firestore.Timestamp;
-  likes: string[];  // array of users who liked the msg
-
-}
+import { createErrorToast } from '../app.component';
 
 @Component({
   selector: 'app-chatpage',
@@ -70,12 +66,44 @@ export class ChatpagePage implements OnInit {
     })
   }
 
-  constructor(private db: AngularFirestore, private camera: Camera, public file:File) {
+  constructor(
+      private db: AngularFirestore,
+      public auth: AngularFireAuth,
+      private router: Router,
+      public toastCtl: ToastController,
+      private camera: Camera,
+      public file: File,
+    ) {
     this.db.collection<DBChatMsg>('/chat').valueChanges().subscribe((res) => {
       this.messages = res;
     });
 
+    this.auth.onAuthStateChanged((user) => {
+      if (user) {
+        // User is signed in
+        this.db.collection<DBUser>('/users').doc(`${user.uid}`).get().toPromise().then((doc) => {
+          if (doc.exists) {
+            this.user = {
+              uid: user.uid,
+              uname: doc.data().uname,
+              avatar: doc.data().avatar,
+              color: doc.data().color,
+            }
+          } else {
+            // Data does not exist in database (should never happen!)
+            createErrorToast(this.toastCtl, "User data not found! Was it deleted?");
+            this.auth.signOut();
+          }
+        });
+      } else {
+        // User is NOT signed in (or has signed out)
+        router.navigateByUrl("/home");
+      }
+    });
+
   }
+
+  user: DBUser;
 
   sendMsg(): void {
     const time = firebase.default.firestore.Timestamp.now();
