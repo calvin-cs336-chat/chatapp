@@ -1,9 +1,10 @@
 import * as firebase from 'firebase';
 
 export interface DBUser {
-  uuid: string;
+  uid: string;
   uname: string;
-  color: string;
+  avatar?: string;
+  color?: string;
 }
 
 export interface DBChatMsg {
