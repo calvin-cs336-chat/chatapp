@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -21,4 +22,5 @@ export class HomePage {
       });
   }
 
+  
 }

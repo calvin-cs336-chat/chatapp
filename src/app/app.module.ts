@@ -17,10 +17,13 @@ import { environment } from '../environments/environment';
 import { Camera } from '@ionic-native/camera/ngx'
 import { File } from '@ionic-native/file/ngx'
 
+import { ColorPickerModule } from 'ngx-color-picker';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
+    ColorPickerModule,
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
