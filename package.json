@@ -31,7 +31,9 @@
     "@ionic/lab": "^3.2.10",
     "cordova-plugin-camera": "^5.0.1",
     "firebase": "^8.2.0",
+    "ionic-color-picker": "^1.0.3",
     "ngx-autosize": "^1.8.4",
+    "ngx-color-picker": "^11.0.0",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.3"

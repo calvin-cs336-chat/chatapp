@@ -22,7 +22,11 @@ const routes: Routes = [
   {
     path: 'chatpage',
     loadChildren: () => import('./chatpage/chatpage.module').then( m => m.ChatpagePageModule)
+  },  {
+    path: 'avatars',
+    loadChildren: () => import('./avatars/avatars.module').then( m => m.AvatarsPageModule)
   },
+
 
 ];
 
