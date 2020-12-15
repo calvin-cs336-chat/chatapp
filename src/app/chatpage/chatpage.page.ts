@@ -131,6 +131,18 @@ export class ChatpagePage implements OnInit {
       })
     })
   }
+
+  like(msg: DBChatMsg) {
+    const index = msg.likes.indexOf(this.user.uid);
+    if (index === -1) {
+      msg.likes.push(this.user.uid);
+    } else {
+      msg.likes.splice(index, 1);
+    }
+    this.db.collection<DBChatMsg>('/chat').doc(`${msg.dateSent}`).update({
+      likes: msg.likes,
+    });
+  }
   
   likeButton(){
     this.likeCount++;
