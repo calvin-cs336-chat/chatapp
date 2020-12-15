@@ -1,12 +1,9 @@
-.card {
-    margin: auto;
-}
- 
 .logo { 
-    display: block;
-    margin: auto;
-    width: 200px;
-    height: 200px;
+    img{
+        height: 200px;
+    }
+    margin-top: 20%;
+    margin-bottom: 20%;
 }
  
 .signup {
@@ -41,4 +38,8 @@
  
 .title {
     text-align: center;
+}
+
+.form {
+    margin-top: 20px;
 }
