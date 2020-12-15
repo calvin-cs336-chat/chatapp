@@ -1,0 +1,46 @@
+.card {
+    margin: auto;
+    width: 60vw;
+    height: 50vw;
+}
+ 
+.logo { 
+    margin: 15vh auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 25px;
+}
+ 
+.signup {
+    transition-duration: 0.4s;
+    display: flex;
+    position: relative;
+    margin: 0 auto;
+    width: 20vw;
+    border-radius: 5px;
+    background-color: green;
+}
+ 
+.signup:hover {
+    background-color: rgb(79, 184, 79);
+    color: white;
+}
+ 
+.login {
+    transition-duration: 0.4s;
+    display: flex;
+    position: relative;
+    margin: 0 auto;
+    width: 20vw;
+    border-radius: 5px;
+    background-color: green;
+}
+ 
+.login:hover {
+    background-color: rgb(79, 184, 79);
+    color: white;
+}
+ 
+.title {
+    text-align: center;
+}
