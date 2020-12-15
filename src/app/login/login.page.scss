@@ -12,11 +12,39 @@
         margin-bottom: 10px;
         border-style: solid;
         border-width: 2px;
-        border-color: rgb(201, 201, 201);
+        border-color: green;
     }
 }
 
 .h2{
     margin-bottom: 10px;
     position: absolute;
+}
+
+.login {
+    transition-duration: 0.4s;
+    display: flex;
+    position: relative;
+    margin: 0 auto;
+    width: 70vw;
+    border-radius: 5px;
+    background-color: green;
+}
+ 
+.login:hover {
+    background-color: rgb(79, 184, 79);
+    color: white;
+}
+
+.signup {
+    transition-duration: 0.4s;
+    display: flex;
+    position: relative;
+    margin: 0 auto;
+    width: 70vw;
+    border-radius: 5px;
+}
+ 
+.signup:hover {
+    color: white;
 }

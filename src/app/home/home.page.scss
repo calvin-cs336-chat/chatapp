@@ -1,14 +1,9 @@
-.card {
-    margin: auto;
-    width: 60vw;
-    height: 50vw;
-}
- 
 .logo { 
-    margin: 15vh auto;
-    width: 150px;
-    height: 150px;
-    border-radius: 25px;
+    img{
+        height: 200px;
+    }
+    margin-top: 20%;
+    margin-bottom: 20%;
 }
  
 .signup {
@@ -16,7 +11,7 @@
     display: flex;
     position: relative;
     margin: 0 auto;
-    width: 20vw;
+    width: 70vw;
     border-radius: 5px;
     background-color: green;
 }
@@ -31,7 +26,7 @@
     display: flex;
     position: relative;
     margin: 0 auto;
-    width: 20vw;
+    width: 70vw;
     border-radius: 5px;
     background-color: green;
 }
@@ -43,4 +38,8 @@
  
 .title {
     text-align: center;
+}
+
+.form {
+    margin-top: 20px;
 }
