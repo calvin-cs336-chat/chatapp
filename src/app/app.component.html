@@ -29,7 +29,7 @@
           <ion-button [(colorPicker)]="color" [style.background]="color" name="color">Choose Message Color</ion-button>
         </ion-item> -->
 
-        <ion-item>
+        <ion-item button>
           <ion-icon name="key" slot="start"></ion-icon>
           <ion-label>Account Settings</ion-label>
         </ion-item>
@@ -39,12 +39,12 @@
           <ion-label>Message Card</ion-label>
         </ion-item> -->
 
-        <ion-item>
+        <ion-item button>
           <ion-icon name="settings" slot="start"></ion-icon>
           <ion-label>Notification Settings</ion-label>
         </ion-item>
 
-        <ion-item (click)="logout()">
+        <ion-item button (click)="logout()">
           <ion-icon name="log-out" slot="start"></ion-icon>
           <ion-label>Log Out</ion-label>
         </ion-item>
