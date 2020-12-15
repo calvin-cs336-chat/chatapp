@@ -108,7 +108,7 @@ export class ChatpagePage implements OnInit {
   sendMsg(): void {
     const time = firebase.default.firestore.Timestamp.now();
     this.db.collection<DBChatMsg>('/chat').doc(`${time}`).set({
-      user: this.currentUser,
+      user: this.user.uname,
       msg: this.enterMsg,
       dateSent: time,
       likes: [],
