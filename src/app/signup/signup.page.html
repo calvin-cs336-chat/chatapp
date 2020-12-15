@@ -2,36 +2,36 @@
 
 </ion-header>
 
-<ion-content class="ion-padding ion-text-center">
+<ion-card class="card">
+  <ion-card-content class="ion-padding ion-text-center">
 
-  <div class="logo">
-    <img src="">
-  </div>
+    <div class="logo">
+      <img src="assets/images/logo.png">
+    </div>
 
-  <h2>Sign Up and Chat!</h2>
+    <h2>Sign Up and Chat!</h2>
 
-  <div class="signupForm">
-  <ion-item lines="none">
-    <ion-input [(ngModel)]='uname' placeholder="Enter Username"></ion-input>
-  </ion-item>
+    <div class="signupForm">
+      <ion-item lines="none">
+        <ion-input [(ngModel)]='uname' placeholder="Enter Username"></ion-input>
+      </ion-item>
 
-  <ion-item lines="none">
-    <ion-input [(ngModel)]='email' placeholder="Enter Email" ></ion-input>
-  </ion-item>
+      <ion-item lines="none">
+        <ion-input [(ngModel)]='email' placeholder="Enter Email" ></ion-input>
+      </ion-item>
 
-  <ion-item lines="none">
-    <ion-input [(ngModel)]='password' placeholder="Enter Password" type="password"></ion-input>
-  </ion-item>
+      <ion-item lines="none">
+        <ion-input [(ngModel)]='password' placeholder="Enter Password" type="password"></ion-input>
+      </ion-item>
 
-  <ion-item lines="none">
-    <ion-input [(ngModel)]='passwordagain' placeholder="Enter Password Again" type="password"></ion-input>
-  </ion-item>
-
-
-  <ion-button color="dark" expand="block" (click)="signup()">Sign Up</ion-button>
-
-  <ion-button fill='clear' (click)="btnClicked()" routerLink="/login"><u>Already have an account? Sign In!</u></ion-button>
-</div>
+      <ion-item lines="none">
+        <ion-input [(ngModel)]='passwordagain' placeholder="Enter Password Again" type="password"></ion-input>
+      </ion-item>
 
 
-</ion-content>
+      <ion-button class="signup" color="white" expand="block" (click)="signup()">Sign Up</ion-button>
+
+      <ion-button class="signin" color="white" fill='clear' (click)="btnClicked()" routerLink="/login"><u>Or Sign In!</u></ion-button>
+    </div>
+  </ion-card-content>
+</ion-card>
