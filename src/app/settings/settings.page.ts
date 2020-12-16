@@ -51,29 +51,25 @@ export class SettingsPage implements OnInit {
   newPassConfirm = '';
   oldPass = '';
 
-  confirm() {
+  async confirm() {
     if (this.newUname !== '') {
       this.db.collection<DBUser>('/users').doc(this.user.uid).update({
         uname: this.newUname,
       });
     }
     if (this.newPass !== '' && this.newPass === this.newPassConfirm) {
-      this.auth.currentUser.then((user) => {
-        user.reauthenticateWithCredential(firebase.default.auth.EmailAuthProvider.credential(user.email, this.oldPass)).then(() => {
-          // Old Password was correct
-          user.updatePassword(this.newPass).then(() => {
-            // Password updated successfully
-            createErrorToast(this.toastCtl, "Password updated successfully."); // I suppose this is the one use case
-                                                                               // where it's not an "error toast"...
-          }).catch((err) => {
-            // Password Update failed
-            createErrorToast(this.toastCtl, err);
-          });
-        }).catch((err) => {
-          // Old Password was not correct
-          createErrorToast(this.toastCtl, err);
+      try {
+        const user = await this.auth.currentUser;
+        await user.reauthenticateWithCredential(firebase.default.auth.EmailAuthProvider.credential(user.email, this.oldPass));
+        await user.updatePassword(this.newPass);
+        const toast = await this.toastCtl.create({
+          message: `${"Password updated successfully."}`,
+          duration: 5000,
         });
-      });
+        await toast.present();
+      } catch (err) {
+        createErrorToast(this.toastCtl, err);
+      }
     }
   }
 
