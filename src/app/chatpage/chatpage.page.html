@@ -1,15 +1,6 @@
 <ion-header>
   <ion-toolbar>
 
-    <ion-buttons slot="start">
-      <ion-back-buttons defaultHref="/"></ion-back-buttons>
-    </ion-buttons>
-
-    <!-- <ion-buttons slot="end">
-      <ion-avatar routerLink="/avatars">
-        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-      </ion-avatar>
-    </ion-buttons> -->
     <ion-title>
       Chat
     </ion-title>
@@ -23,32 +14,6 @@
 <ion-content>
   <ion-grid>
     <ion-row *ngFor="let msg of messages">
-      <!-- <ion-col size="9" *ngIf="currentUser !== chatMessage.user" class="chatMessage other-message">
-        <ion-avatar class="pic">
-          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-        </ion-avatar>
-        <b>{{chatMessage.user}}</b><br>
-        <span>{{chatMessage.msg}}</span>
-        <div class="time" text-right><br>
-        {{ chatMessage.dateSent | date:'short'}}</div>
-      </ion-col>
-
-      <ion-col offset="3" size="9" *ngIf="currentUser === chatMessage.user" class="chatMessage my-message">
-        <ion-avatar class="pic">
-          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-        </ion-avatar>
-        <b>{{chatMessage.user}}</b><br>
-        <span>{{chatMessage.msg}}</span>
-
-
-        <label>{{likeCount}} like</label>
-        <ion-button (click)="likeButton()">Like</ion-button>
-        
-        <div class="time" text-right><br>
-        {{ chatMessage.dateSent | date:'short'}}</div>
-
-      </ion-col> -->
-
       <ion-card class="message">
         <ion-card-header>
           <ion-card-title>{{msg.user}}</ion-card-title>
@@ -76,15 +41,6 @@
         (click)="sendMsg()">
         <ion-icon name="send" slot="icon-only"></ion-icon>
       </ion-button>
-
-      <!-- <ion-button expand="block" fill="clear" color="primary" class="cam-btn" (click)="chatCamera()">
-        <ion-icon name="camera" slot="icon-only"></ion-icon>
-      </ion-button>
-      <ion-list *ngFor="let picture of pictures">
-        <ion-item>
-          <img src={{picture}} style="width:200px; height:150px;"/>
-        </ion-item>
-      </ion-list> -->
       </ion-col>
     </ion-row>
   </ion-toolbar>
