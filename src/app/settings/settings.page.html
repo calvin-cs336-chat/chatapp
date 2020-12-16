@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>User Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-input placeholder="Change Username" [(ngModel)]="newUname"></ion-input>
+  <ion-input type="password" placeholder="Change Password" [(ngModel)]="newPass"></ion-input>
+  <ion-input type="password" placeholder="Confirm Password" [(ngModel)]="newPassConfirm"></ion-input>
+  <ion-label>You must provide your current password to set a new password.</ion-label>
+  <ion-input type="password" placeholder="Old Password" [(ngModel)]="oldPass"></ion-input>
+
+  <ion-button (click)="confirm()">Confirm</ion-button>
+
+</ion-content>

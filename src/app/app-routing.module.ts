@@ -26,6 +26,10 @@ const routes: Routes = [
     path: 'avatars',
     loadChildren: () => import('./avatars/avatars.module').then( m => m.AvatarsPageModule)
   },
+  {
+    path: 'settings',
+    loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
+  },
 
 
 ];
